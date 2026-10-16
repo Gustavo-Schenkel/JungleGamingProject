@@ -1,0 +1,42 @@
+Selected test output from the completed verification run. Machine-specific transcript headers are omitted.
+
+PASS: PID ownership and invariant timestamps under pt-BR, en-US and fr-FR.
+PASS: STAGE 8 DB (race=True)
+PASS: API ready
+PASS: Keycloak: 3 tokens client_credentials obtidos
+PASS: Somente cliente interno cria carteira
+PASS: Provedor nao tem permissao para criar carteiras
+PASS: Ausencia de Bearer rejeitada com 401
+PASS: Token invalido rejeitado com 401
+PASS: Cliente interno nao pode apostar como provedor
+PASS: Tentativa de forjar providerId no JSON rejeitada
+PASS: Aposta do provedor alpha processada: BRL 90.00
+PASS: Repeticao idempotente do provedor alpha
+PASS: Alpha consulta apenas sua transacao
+PASS: Beta nao consegue consultar transacao de alpha (404)
+PASS: Cliente interno consulta saldo BRL 90.00
+PASS: Provedor nao consegue consultar carteira interna
+PASS: Identificadores iguais nao colidem entre provedores
+PASS: Beta consulta somente seu proprio resultado
+STAGE 6 PASSED: provider isolation, OIDC, ledger-preserving transaction; wallet=5c306b13-af92-40c3-85b8-e837f2c23630
+PASS: API ready and PostgreSQL accessible
+PASS: Opening BRL100.00 committed
+PASS: SQS BET debit BRL80.00 -> BRL20.00 version 2
+PASS: SQS WIN credit BRL30.00 -> BRL50.00 version 3
+PASS: Duplicate SQS BET did not move wallet twice
+PASS: Ledger exactly OPENING, BET, WIN
+PASS: Inbox durably records new SQS message IDs and replay
+PASS: Outbox publishes OPENING, BET, WIN after commit
+PASS: No wallet/ledger reconciliation difference
+STAGE 7 PASSED; wallet=86bd6a89-0946-413e-bf39-3d250eaa4ab9. Existing project financial data preserved.
+PASS: Finance committed BRL80.00 while SQS was unavailable
+PASS: PostgreSQL retained events for retry
+STAGE 7 OUTAGE RECOVERY PASSED: financial commit persisted and outbox published after SQS return.
+PASS: tres processos Go independentes com PIDs distintos.
+PASS: instancia 18082 ready (PID 15632)
+STAGE 8: 1 instancia(s) iniciada(s). Registros em .stage8-run/instances.json
+PASS: operacoes continuaram com duas instancias e a terceira foi reiniciada.
+port=18080 PID=2580 owned-and-running=True
+port=18083 PID=13428 owned-and-running=True
+port=18082 PID=15632 owned-and-running=True
+PASS: migration history 001-006 and zero wallet/ledger divergence.

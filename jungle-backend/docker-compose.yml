@@ -1,0 +1,52 @@
+name: ${COMPOSE_PROJECT_NAME:-jungle-challenge}
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: ${POSTGRES_CONTAINER:-jungle-challenge-postgres}
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-jungle}
+      POSTGRES_USER: ${POSTGRES_USER:-jungle}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run scripts/bootstrap.ps1 first}
+    ports:
+      - "127.0.0.1:${POSTGRES_COMPOSE_PORT:-5433}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-jungle} -d ${POSTGRES_DB:-jungle}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  localstack:
+    image: localstack/localstack:4
+    container_name: ${LOCALSTACK_CONTAINER:-jungle-challenge-localstack}
+    environment:
+      SERVICES: sqs
+      AWS_DEFAULT_REGION: us-east-1
+      DEBUG: "0"
+      PERSISTENCE: "1"
+      SQS_ENDPOINT_STRATEGY: dynamic
+    ports:
+      - "127.0.0.1:${LOCALSTACK_PORT:-4566}:4566"
+    volumes:
+      - localstack_data:/var/lib/localstack
+    healthcheck:
+      test: ["CMD", "python", "-c", "import json,urllib.request; r=json.load(urllib.request.urlopen('http://127.0.0.1:4566/_localstack/health',timeout=10)); assert r.get('services',{}).get('sqs') in ('available','running')"]
+      interval: 30s
+      timeout: 15s
+      start_period: 120s
+      retries: 20
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.3
+    container_name: ${KEYCLOAK_CONTAINER:-jungle-challenge-keycloak}
+    command: start-dev
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: ${KEYCLOAK_ADMIN:-admin}
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:?Run scripts/bootstrap.ps1 first}
+    ports:
+      - "127.0.0.1:${KEYCLOAK_PORT:-8081}:8080"
+    volumes:
+      - keycloak_data:/opt/keycloak/data
+volumes:
+  postgres_data:
+  localstack_data:
+  keycloak_data:

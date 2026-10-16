@@ -1,0 +1,100 @@
+?   	github.com/gustavo-schenkel/jungle-backend-challenge/cmd/api	[no test files]
+?   	github.com/gustavo-schenkel/jungle-backend-challenge/cmd/sqs-send	[no test files]
+?   	github.com/gustavo-schenkel/jungle-backend-challenge/cmd/sqs-setup	[no test files]
+?   	github.com/gustavo-schenkel/jungle-backend-challenge/cmd/stage8-verify	[no test files]
+?   	github.com/gustavo-schenkel/jungle-backend-challenge/internal/app	[no test files]
+=== RUN   TestOIDCStartupRecoversFromTransientDiscoveryFailure
+--- PASS: TestOIDCStartupRecoversFromTransientDiscoveryFailure (2.87s)
+=== RUN   TestOIDCVerificationProviderIsolationAndTampering
+=== RUN   TestOIDCVerificationProviderIsolationAndTampering/wrong_issuer
+=== RUN   TestOIDCVerificationProviderIsolationAndTampering/missing_audience
+=== RUN   TestOIDCVerificationProviderIsolationAndTampering/expired
+=== RUN   TestOIDCVerificationProviderIsolationAndTampering/wrong_type
+=== RUN   TestOIDCVerificationProviderIsolationAndTampering/missing_subject
+=== RUN   TestOIDCVerificationProviderIsolationAndTampering/future_nbf
+=== RUN   TestOIDCVerificationProviderIsolationAndTampering/future_iat
+=== RUN   TestOIDCVerificationProviderIsolationAndTampering/unapproved_client
+=== RUN   TestOIDCVerificationProviderIsolationAndTampering/HTTP_middleware_rejects_missing_token
+=== RUN   TestOIDCVerificationProviderIsolationAndTampering/HTTP_middleware_accepts_valid_token
+--- PASS: TestOIDCVerificationProviderIsolationAndTampering (5.90s)
+    --- PASS: TestOIDCVerificationProviderIsolationAndTampering/wrong_issuer (0.04s)
+    --- PASS: TestOIDCVerificationProviderIsolationAndTampering/missing_audience (0.10s)
+    --- PASS: TestOIDCVerificationProviderIsolationAndTampering/expired (0.04s)
+    --- PASS: TestOIDCVerificationProviderIsolationAndTampering/wrong_type (0.08s)
+    --- PASS: TestOIDCVerificationProviderIsolationAndTampering/missing_subject (0.02s)
+    --- PASS: TestOIDCVerificationProviderIsolationAndTampering/future_nbf (0.03s)
+    --- PASS: TestOIDCVerificationProviderIsolationAndTampering/future_iat (0.05s)
+    --- PASS: TestOIDCVerificationProviderIsolationAndTampering/unapproved_client (0.03s)
+    --- PASS: TestOIDCVerificationProviderIsolationAndTampering/HTTP_middleware_rejects_missing_token (0.00s)
+    --- PASS: TestOIDCVerificationProviderIsolationAndTampering/HTTP_middleware_accepts_valid_token (0.03s)
+=== RUN   TestVerifierRejectsInsecureProductionIssuer
+--- PASS: TestVerifierRejectsInsecureProductionIssuer (0.00s)
+PASS
+ok  	github.com/gustavo-schenkel/jungle-backend-challenge/internal/auth	10.229s
+=== RUN   TestLoadEncodesSpecialCharactersInDatabasePassword
+--- PASS: TestLoadEncodesSpecialCharactersInDatabasePassword (0.00s)
+PASS
+ok  	github.com/gustavo-schenkel/jungle-backend-challenge/internal/config	1.373s
+?   	github.com/gustavo-schenkel/jungle-backend-challenge/internal/database	[no test files]
+=== RUN   TestReferenceRejectsDifferentGameIntegration
+--- PASS: TestReferenceRejectsDifferentGameIntegration (22.58s)
+=== RUN   TestOutboxOrderUsesInsertionNotTransactionStartIntegration
+--- PASS: TestOutboxOrderUsesInsertionNotTransactionStartIntegration (14.68s)
+=== RUN   TestConcurrentBetsIntegration
+--- PASS: TestConcurrentBetsIntegration (5.45s)
+=== RUN   TestRepeatedSameBetIntegration
+--- PASS: TestRepeatedSameBetIntegration (16.02s)
+=== RUN   TestWinAndImmutableLedgerIntegration
+--- PASS: TestWinAndImmutableLedgerIntegration (2.27s)
+=== RUN   TestReconciliationAndInsufficientFundsIntegration
+--- PASS: TestReconciliationAndInsufficientFundsIntegration (2.65s)
+=== RUN   TestHashNormalizesEquivalentAmounts
+--- PASS: TestHashNormalizesEquivalentAmounts (0.01s)
+=== RUN   TestRejectsUnsupportedAndInvalidCommands
+--- PASS: TestRejectsUnsupportedAndInvalidCommands (0.00s)
+=== RUN   TestValidateStage5MoneyAndReferenceRules
+--- PASS: TestValidateStage5MoneyAndReferenceRules (0.00s)
+=== RUN   TestReferenceBackoffBounded
+--- PASS: TestReferenceBackoffBounded (0.00s)
+=== RUN   TestStage5RefundRollbackLossIntegration
+--- PASS: TestStage5RefundRollbackLossIntegration (1.95s)
+=== RUN   TestStage5RollbackWinNoFundsIntegration
+--- PASS: TestStage5RollbackWinNoFundsIntegration (5.92s)
+=== RUN   TestStage5PendingReferenceRecoveryIntegration
+--- PASS: TestStage5PendingReferenceRecoveryIntegration (5.36s)
+=== RUN   TestStage5CompetingReversalsIntegration
+--- PASS: TestStage5CompetingReversalsIntegration (3.12s)
+PASS
+ok  	github.com/gustavo-schenkel/jungle-backend-challenge/internal/finance	81.412s
+=== RUN   TestDevOnlyRejectsRemoteAndNonDev
+=== RUN   TestDevOnlyRejectsRemoteAndNonDev/local_dev
+=== RUN   TestDevOnlyRejectsRemoteAndNonDev/remote_dev
+=== RUN   TestDevOnlyRejectsRemoteAndNonDev/local_production
+--- PASS: TestDevOnlyRejectsRemoteAndNonDev (0.00s)
+    --- PASS: TestDevOnlyRejectsRemoteAndNonDev/local_dev (0.00s)
+    --- PASS: TestDevOnlyRejectsRemoteAndNonDev/remote_dev (0.00s)
+    --- PASS: TestDevOnlyRejectsRemoteAndNonDev/local_production (0.00s)
+=== RUN   TestHealthLiveReturns200
+--- PASS: TestHealthLiveReturns200 (0.00s)
+PASS
+ok  	github.com/gustavo-schenkel/jungle-backend-challenge/internal/httpserver	1.222s
+=== RUN   TestInboxAtomicityAndExactReplayIntegration
+--- PASS: TestInboxAtomicityAndExactReplayIntegration (8.01s)
+=== RUN   TestSignedQueueIdentityAndTampering
+--- PASS: TestSignedQueueIdentityAndTampering (0.01s)
+=== RUN   TestEnvelopeEncodingAndBackoff
+--- PASS: TestEnvelopeEncodingAndBackoff (0.00s)
+PASS
+ok  	github.com/gustavo-schenkel/jungle-backend-challenge/internal/messaging	9.747s
+=== RUN   TestExactParsing
+--- PASS: TestExactParsing (0.01s)
+=== RUN   TestInvalidAmounts
+--- PASS: TestInvalidAmounts (0.00s)
+=== RUN   TestArithmeticAndMismatch
+--- PASS: TestArithmeticAndMismatch (0.00s)
+PASS
+ok  	github.com/gustavo-schenkel/jungle-backend-challenge/internal/money	1.488s
+=== RUN   TestNewID
+--- PASS: TestNewID (0.00s)
+PASS
+ok  	github.com/gustavo-schenkel/jungle-backend-challenge/internal/wallet	1.550s

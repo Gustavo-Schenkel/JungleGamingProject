@@ -1,0 +1,24 @@
+{
+  "stage": 8,
+  "mode": "failover",
+  "runId": "c0af28549a7a90037ee02ca4ad66248f",
+  "generatedAtUtc": "2026-10-16T01:13:30Z",
+  "endpoints": [
+    "http://127.0.0.1:18080",
+    "http://127.0.0.1:18083"
+  ],
+  "checks": {
+    "Cross-process double-spend 100.00 / 80.00 + 80.00": "PASS",
+    "Every independent API endpoint ready": "PASS",
+    "Global wallet/ledger audit has zero differences": "PASS",
+    "Keycloak service tokens": "PASS",
+    "Same-key replay through separate HTTP processes": "PASS",
+    "Shared SQS consumers + durable inbox/outbox": "PASS"
+  },
+  "wallets": [
+    "9bf5bff7-dbb8-4474-b153-85fa06bf0366",
+    "5b8263fe-b2f4-48de-8439-a4c876703fec",
+    "a762c728-5e4f-43b8-83c1-a6c760fc1f42"
+  ],
+  "status": "PASSED"
+}
