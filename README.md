@@ -13,6 +13,10 @@ ledger, refunds, rollbacks, delayed references, and three independent API proces
 
 ## Run from a clean machine
 
+**FIRST OF ALL, CREATE A .ENV NOTE IN jungle-backend FOLDER WITH .enx-example AS YOUR BASE; JUST CHANGE POSTGRES USER/PASSWORD AND KEYCLOAK ADMIN/PASSWORD AS YOUR OWN CREDENTIALS. DO NOT EXCLUDE .env-example!!
+
+
+
 Open PowerShell 7 in the project root: the folder containing `go.mod`, `docker-compose.yml` and `scripts`. Run bootstrap:
 
 ```powershell
